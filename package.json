@@ -1,0 +1,28 @@
+{
+  "name": "ftrucli",
+  "version": "0.0.1",
+  "description": "`ftrucli` is a Food Truck CLI used to find food trucks near a geospatial coordinate (especially in San Francisco).",
+  "main": "./lib/index.js",
+  "bin": {
+    "ftrucli": "./lib/index.js"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "heft build",
+    "build-clean": "heft build --clean",
+    "test": "heft test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpaceKatt/ftrucli.git"
+  },
+  "keywords": [],
+  "author": "Thomas Kercheval",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SpaceKatt/ftrucli/issues"
+  },
+  "homepage": "https://github.com/SpaceKatt/ftrucli#readme"
+}
