@@ -64,6 +64,8 @@ The CLI will follow the basic flow of the following diagram...
 
 ![User journey sequence diagram](docs/diagrams/out/docs/diagrams/user-data-flow/user-data-flow.png))
 
+Author _may_ or may not have time to implement factories for extensibility. If they do, then the `Output` class will be the first refactoring candidate (to output results in either a prettified table or raw `json`).
+
 ## CLI Instructions
 
 ### Installation
