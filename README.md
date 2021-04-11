@@ -12,6 +12,9 @@
     - [Installation](#installation)
     - [Usage](#usage)
   - [Development](#development)
+    - [Dependencies](#dependencies)
+      - [Install `node14`, using `nvm`](#install-node14-using-nvm)
+      - [Install `pnpm` and `heft`](#install-pnpm-and-heft)
     - [Build](#build)
     - [Test](#test)
     - [Linting](#linting)
@@ -74,11 +77,50 @@ Author _may_ or may not have time to implement factories for extensibility. If t
 
 ## Development
 
+### Dependencies
+
+This section describes how to set up the project's build toolchain.
+
+#### Install `node14`, using `nvm`
+
+```bash
+# Install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+source ~/.bashrc
+
+# Install node14
+nvm install 14
+nvm use 14
+```
+
+#### Install `pnpm` and `heft`
+
+```bash
+npm install --global pnpm
+pnpm install --global @rushstack/heft
+```
+
+> NOTE: Since this project uses `pnpm`, please use it to install new packages (instead of `npm`). This helps maintain the `pnpm-lock.yaml` file.
+
 ### Build
+
+This project uses [`heft`](https://rushstack.io/pages/heft/overview/) as a build coordinator.
+
+```bash
+heft build
+```
 
 ### Test
 
+This project uses [`heft`](https://rushstack.io/pages/heft/overview/) as a test orchestrator (`jest` under the covers).
+
+```bash
+heft build
+```
+
 ### Linting
+
+This project uses [eslint](https://eslint.org/) for linting. (TSLint is now deprecated.)
 
 ## CI/CD
 
