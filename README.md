@@ -62,6 +62,8 @@ Out of scope features for the MVP...
 
 The CLI will follow the basic flow of the following diagram...
 
+![User journey sequence diagram](docs/diagrams/out/docs/diagrams/user-data-flow/user-data-flow.png))
+
 ## CLI Instructions
 
 ### Installation
