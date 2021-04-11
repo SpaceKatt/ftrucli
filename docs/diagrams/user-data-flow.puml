@@ -1,0 +1,42 @@
+@startuml
+
+actor dev
+participant ftrucli
+participant Action
+participant QueryBuilder
+participant CitySodaClient
+participant Output
+
+dev->ftrucli: CLI command
+activate ftrucli
+
+ftrucli->Action: query action
+activate Action
+
+Action->QueryBuilder: select\n Call multiple times\n to specify fields
+activate QueryBuilder
+Action->QueryBuilder: withLat(X)
+Action->QueryBuilder: withLong(Y)
+Action->QueryBuilder: limit(5)
+Action->QueryBuilder: buildQuery()
+QueryBuilder->Action: query
+deactivate QueryBuilder
+
+Action->CitySodaClient: runQuery(query)
+activate CitySodaClient
+CitySodaClient->Action: data
+deactivate CitySodaClient
+
+Action->Output: print(data)
+activate Output
+Output->Output: write to stdin stream
+Output->Action: success
+deactivate Output
+
+Action->ftrucli: success
+deactivate Action
+
+ftrucli->dev: exit(0)
+deactivate ftrucli
+
+@enduml
