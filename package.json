@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/SpaceKatt/ftrucli/issues"
   },
-  "homepage": "https://github.com/SpaceKatt/ftrucli#readme"
+  "homepage": "https://github.com/SpaceKatt/ftrucli#readme",
+  "dependencies": {
+    "@rushstack/ts-command-line": "^4.7.9"
+  }
 }
