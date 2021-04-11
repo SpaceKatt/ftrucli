@@ -126,9 +126,17 @@ This project uses [eslint](https://eslint.org/) for linting. (TSLint is now depr
 
 ## CI/CD
 
+This section details this project's CI and CD practices.
+
 ### Continuous Integration
 
+Continuous integration is performed on [TravisCI](https://travis-ci.org/github/SpaceKatt/ftrucli), as defined by [`.travis.yml`](.travis.yml). Heft is installed, used to build the project, then used to test the project.
+
 ### Continuous Deployment
+
+Continuous deployment is out of scope, but on the roadmap.
+
+The plan is to use GitHub actions to "watch" branches of the pattern `release/*` and publish built artifacts to a `npm` repo.
 
 ## Publishing
 
