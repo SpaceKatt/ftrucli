@@ -1,0 +1,21 @@
+jobs:
+  include:
+    - stage: heft build && heft test
+      language: node_js
+      node_js:
+        - "14.16.0"
+      script:
+        - set -e
+
+        - echo 'Installing build toolchain...' && echo -en 'travis_fold:start:install\\r'
+        - npm install --global pnpm
+        - pnpm install --global @rushstack/heft
+        - echo -en 'travis_fold:end:install\\r'
+
+        - echo 'Building project...' && echo -en 'travis_fold:start:build\\r'
+        - heft build
+        - echo -en 'travis_fold:end:build\\r'
+
+        - echo 'Testing package...' && echo -en 'travis_fold:start:test\\r'
+        - heft test
+        - echo -en 'travis_fold:end:test\\r'
