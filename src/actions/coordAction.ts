@@ -1,8 +1,18 @@
 import { JsonOutput } from '../output';
 
-import { CommandLineAction } from '@rushstack/ts-command-line';
+import {
+  CommandLineAction,
+  CommandLineIntegerParameter,
+  CommandLineStringParameter,
+} from '@rushstack/ts-command-line';
+import { SodaQueryBuilder } from '../builders';
 
 export class CoordAction extends CommandLineAction {
+  private _distance!: CommandLineIntegerParameter;
+  private _limit!: CommandLineIntegerParameter;
+  private _lat!: CommandLineStringParameter;
+  private _long!: CommandLineStringParameter;
+
   constructor() {
     super({
       actionName: 'coord',
@@ -13,12 +23,47 @@ export class CoordAction extends CommandLineAction {
   }
 
   protected async onExecute(): Promise<void> {
-    const data = { msg: 'reeee' };
+    const queryBuilder = new SodaQueryBuilder();
+
+    const query = queryBuilder
+      .withLat(this._lat.value!)
+      .withLong(this._long.value!)
+      .withLimit(this._limit.value!)
+      .withDistance(this._distance.value!)
+      .buildQuery();
 
     const output = new JsonOutput();
 
-    output.print(data);
+    output.print(query);
   }
 
-  protected onDefineParameters(): void {}
+  protected onDefineParameters(): void {
+    this._long = this.defineStringParameter({
+      argumentName: 'LONGITUDE',
+      required: true,
+      parameterLongName: '--long',
+      description: "A user's longitude.",
+    });
+    this._lat = this.defineStringParameter({
+      argumentName: 'LATITUDE',
+      required: true,
+      parameterLongName: '--lat',
+      description: "A user's latitude.",
+    });
+    this._limit = this.defineIntegerParameter({
+      argumentName: 'LIMIT',
+      parameterLongName: '--limit',
+      parameterShortName: '-n',
+      description: 'Limits the number of responses returned from a SODA query.',
+      defaultValue: 6,
+    });
+    this._distance = this.defineIntegerParameter({
+      argumentName: 'DISTANCE',
+      parameterLongName: '--distance',
+      parameterShortName: '-d',
+      description:
+        'The distance (in meters) to search outwards from a coordinate point.',
+      defaultValue: 5000,
+    });
+  }
 }
