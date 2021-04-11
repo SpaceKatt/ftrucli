@@ -7,6 +7,12 @@ participant QueryBuilder
 participant CitySodaClient
 participant Output
 
+note right of ftrucli
+  CLI builds required objects based on CLI flags (stored as constants),
+  introducing factories to add additional queries, cities, or output
+  formats (allowing the caller to be extensible while remaining static).
+end note
+
 dev->ftrucli: CLI command
 activate ftrucli
 
