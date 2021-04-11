@@ -77,6 +77,10 @@ Author _may_ or may not have time to implement factories for extensibility. If t
 
 ### Usage
 
+```bash
+trucli coord --lat 37.80 --long -122.43
+```
+
 ## Development
 
 ### Dependencies
