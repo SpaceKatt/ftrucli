@@ -3,7 +3,11 @@
 `ftrucli` is a Food Truck CLI used to find food trucks near a geospatial coordinate (especially in San Francisco).
 
 - [ftrucli](#ftrucli)
-  - [MVP Design Meta](#mvp-design-meta)
+  - [MVP Meta](#mvp-meta)
+    - [Foundational Intent](#foundational-intent)
+    - [MVP Design Intent](#mvp-design-intent)
+    - [Out of Scope for MVP](#out-of-scope-for-mvp)
+    - [Initial Design Description](#initial-design-description)
   - [CLI Instructions](#cli-instructions)
     - [Installation](#installation)
     - [Usage](#usage)
@@ -19,7 +23,44 @@
     - [Versioning](#versioning)
   - [Decision Log](#decision-log)
 
-## MVP Design Meta
+## MVP Meta
+
+This section describes the author's intent while building the minimum viable product (MVP) for `trucli` (and will be refactored once project is beyond MVP stage).
+
+### Foundational Intent
+
+Above and beyond all else, the intent of this project is to...
+
+- Demonstrate author's values
+- Showcase problem solving process
+- Curate collaboration environment (provide ideal open-source dev experience)
+- Cut a release ~3 hours after `init commit`
+
+### MVP Design Intent
+
+The following areas of focus drove the design of the `trucli` MVP...
+
+- Implement bare minimum feature set (give at least five (5) food trucks, given a coordinate pair)
+- Prioritize production rediness by focusing on...
+  - Organization
+  - Design
+  - Testing
+  - Deployment
+  - Documentation
+- Design for extensibility
+
+### Out of Scope for MVP
+
+Out of scope features for the MVP...
+
+- `--open-now` - filter for open food trucks
+- data caching - all queries will be against the SF SODA endpoint
+- search by street address, using the [Bing Maps API](https://docs.microsoft.com/en-us/bingmaps/rest-services/locations/find-a-location-by-address)
+- using an app token (and storing it in a `.env` file or Azure Key Vault)
+
+### Initial Design Description
+
+The CLI will follow the basic flow of the following diagram...
 
 ## CLI Instructions
 
