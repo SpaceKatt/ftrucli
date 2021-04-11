@@ -49,5 +49,6 @@
 
 ## Decision Log
 
-| Decision | Description |
-| -------- | ----------- |
+| Decision                                                                   | Brief Description                                       |
+| -------------------------------------------------------------------------- | ------------------------------------------------------- |
+| [Rushstack used as project tool chain](./docs/adr/0001-heft-buildchain.md) | Rushstack provides us with build and CLI tools.         |
