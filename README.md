@@ -213,7 +213,17 @@ The plan is to use GitHub actions to "watch" branches of the pattern `release/*`
 
 ### `npm` Publishing
 
+```bash
+npm publish
+```
+
 ### Versioning
+
+[Semantic versioning](https://docs.npmjs.com/about-semantic-versioning) via [using `npm`](https://docs.npmjs.com/updating-your-published-package-version-number) is standard procedure.
+
+```bash
+npm version <major|minor|patch>
+```
 
 ## Decision Log
 
