@@ -18,7 +18,12 @@
     "type": "git",
     "url": "git+https://github.com/SpaceKatt/ftrucli.git"
   },
-  "keywords": [],
+  "keywords": [
+    "ftrucli",
+    "food truck",
+    "cli",
+    "San Francisco"
+  ],
   "author": "Thomas Kercheval",
   "license": "MIT",
   "bugs": {
