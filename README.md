@@ -32,7 +32,7 @@
 
 ## MVP Meta
 
-This section describes the author's intent while building the minimum viable product (MVP) for `trucli` (and will be refactored once project is beyond MVP stage).
+This section describes the author's intent while building the minimum viable product (MVP) for `ftrucli` (and will be refactored once project is beyond MVP stage).
 
 ### Foundational Intent
 
@@ -45,7 +45,7 @@ Above and beyond all else, the intent of this project is to...
 
 ### MVP Design Intent
 
-The following areas of focus drove the design of the `trucli` MVP...
+The following areas of focus drove the design of the `ftrucli` MVP...
 
 - Implement bare minimum feature set (give at least five (5) food trucks, given a coordinate pair)
 - Prioritize production rediness by focusing on...
@@ -80,7 +80,7 @@ Author _may_ or may not have time to implement factories for extensibility. If t
 Install the CLI globally from npm.
 
 ```bash
-npm install --global trucli
+npm install --global ftrucli
 ```
 
 ### Usage
@@ -106,7 +106,7 @@ Optional arguments:
   -h, --help     Show this help message and exit.
   -v, --verbose  Print out all the debug!
 
-For detailed help about a specific command, use: trucli <command> -h
+For detailed help about a specific command, use: ftrucli <command> -h
 ```
 
 `coord` command help dump...
@@ -135,7 +135,7 @@ Optional arguments:
 
 ```bash
 # Set long/lat, use default distance and limit
-trucli coord --lat 37.80 --long -122.43
+ftrucli coord --lat 37.80 --long -122.43
 ```
 
 ```bash
