@@ -2,18 +2,18 @@
 import {
   CommandLineFlagParameter,
   CommandLineParser,
-} from "@rushstack/ts-command-line";
+} from '@rushstack/ts-command-line';
 
-import { CoordAction } from "./actions";
+import { CoordAction } from './actions';
 
 export class TrucliCommandLine extends CommandLineParser {
   private _verbose!: CommandLineFlagParameter;
 
   constructor() {
     super({
-      toolFilename: "trucli",
+      toolFilename: 'ftrucli',
       toolDescription:
-        "Food Truck CLI used to find food trucks near a geospatial coordinate (especially in San Francisco).",
+        'Food Truck CLI used to find food trucks near a geospatial coordinate (especially in San Francisco).',
     });
 
     this.addAction(new CoordAction());
@@ -21,9 +21,9 @@ export class TrucliCommandLine extends CommandLineParser {
 
   protected onDefineParameters(): void {
     this._verbose = this.defineFlagParameter({
-      parameterLongName: "--verbose",
-      parameterShortName: "-v",
-      description: "Print out all the debug!",
+      parameterLongName: '--verbose',
+      parameterShortName: '-v',
+      description: 'Print out all the debug!',
     });
   }
 

@@ -13,6 +13,8 @@
   - [CLI Instructions](#cli-instructions)
     - [Installation](#installation)
     - [Usage](#usage)
+      - [Help Dump](#help-dump)
+      - [Usage Examples](#usage-examples)
   - [Development](#development)
     - [Dependencies](#dependencies)
       - [Install `node14`, using `nvm`](#install-node14-using-nvm)
@@ -75,7 +77,61 @@ Author _may_ or may not have time to implement factories for extensibility. If t
 
 ### Installation
 
+Install the CLI globally from npm.
+
+```bash
+npm install --global trucli
+```
+
 ### Usage
+
+This section contains the CLI help messages and some examples
+
+#### Help Dump
+
+General help dump...
+
+```bash
+usage: ftrucli [-h] [-v] <command> ...
+
+Food Truck CLI used to find food trucks near a geospatial coordinate
+(especially in San Francisco).
+
+Positional arguments:
+  <command>
+    coord        Finds food trucks within a specified distance from a
+                 coordinate pair.
+
+Optional arguments:
+  -h, --help     Show this help message and exit.
+  -v, --verbose  Print out all the debug!
+
+For detailed help about a specific command, use: trucli <command> -h
+```
+
+`coord` command help dump...
+
+```bash
+$ ftrucli
+usage: ftrucli coord [-h] --long LONGITUDE --lat LATITUDE [-n LIMIT]
+                    [-d DISTANCE]
+
+
+TODO: more docs here.
+
+Optional arguments:
+  -h, --help            Show this help message and exit.
+  --long LONGITUDE      A user's longitude.
+  --lat LATITUDE        A user's latitude.
+  -n LIMIT, --limit LIMIT
+                        Limits the number of responses returned from a SODA
+                        query. The default value is 6.
+  -d DISTANCE, --distance DISTANCE
+                        The distance (in meters) to search outwards from a
+                        coordinate point. The default value is 5000.
+```
+
+#### Usage Examples
 
 ```bash
 trucli coord --lat 37.80 --long -122.43

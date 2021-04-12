@@ -6,6 +6,7 @@ import {
   CommandLineStringParameter,
 } from '@rushstack/ts-command-line';
 import { SodaQueryBuilder } from '../builders';
+import { SfSodaClient } from '../services/sfSodaClient';
 
 export class CoordAction extends CommandLineAction {
   private _distance!: CommandLineIntegerParameter;
@@ -32,9 +33,15 @@ export class CoordAction extends CommandLineAction {
       .withDistance(this._distance.value!)
       .buildQuery();
 
+    const cityClient = new SfSodaClient();
+    const data = await cityClient.runQuery(query);
+
+    // TODO: gather --output flag and use it to construct
+    //       output object from factory, to enable other
+    //       types of output
     const output = new JsonOutput();
 
-    output.print(query);
+    output.print(data);
   }
 
   protected onDefineParameters(): void {
