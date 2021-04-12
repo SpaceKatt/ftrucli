@@ -134,7 +134,18 @@ Optional arguments:
 #### Usage Examples
 
 ```bash
+# Set long/lat, use default distance and limit
 trucli coord --lat 37.80 --long -122.43
+```
+
+```bash
+# Specify distance
+ftrucli coord --lat 37.80 --long -122.43 --distance 7331
+```
+
+```bash
+# Specify limit
+ftrucli coord --lat 37.80 --long -122.43 --distance 7331 --limit 1
 ```
 
 ## Development
@@ -172,6 +183,8 @@ This project uses [`heft`](https://rushstack.io/pages/heft/overview/) as a build
 heft build
 ```
 
+> NOTE: `heft` ensures packages are installed, so it is completely unnecessary to run `$ pnpm i` (or `$ npm i`) before `$ heft build`
+
 ### Test
 
 This project uses [`heft`](https://rushstack.io/pages/heft/overview/) as a test orchestrator (`jest` under the covers).
@@ -202,7 +215,17 @@ The plan is to use GitHub actions to "watch" branches of the pattern `release/*`
 
 ### `npm` Publishing
 
+```bash
+npm publish
+```
+
 ### Versioning
+
+[Semantic versioning](https://docs.npmjs.com/about-semantic-versioning) via [using `npm`](https://docs.npmjs.com/updating-your-published-package-version-number) is standard procedure.
+
+```bash
+npm version <major|minor|patch>
+```
 
 ## Decision Log
 
