@@ -134,7 +134,18 @@ Optional arguments:
 #### Usage Examples
 
 ```bash
+# Set long/lat, use default distance and limit
 trucli coord --lat 37.80 --long -122.43
+```
+
+```bash
+# Specify distance
+ftrucli coord --lat 37.80 --long -122.43 --distance 7331
+```
+
+```bash
+# Specify distance
+ftrucli coord --lat 37.80 --long -122.43 --distance 1337
 ```
 
 ## Development
