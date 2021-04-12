@@ -144,8 +144,8 @@ ftrucli coord --lat 37.80 --long -122.43 --distance 7331
 ```
 
 ```bash
-# Specify distance
-ftrucli coord --lat 37.80 --long -122.43 --distance 1337
+# Specify limit
+ftrucli coord --lat 37.80 --long -122.43 --distance 7331 --limit 1
 ```
 
 ## Development
@@ -182,6 +182,8 @@ This project uses [`heft`](https://rushstack.io/pages/heft/overview/) as a build
 ```bash
 heft build
 ```
+
+> NOTE: `heft` ensures packages are installed, so it is completely unnecessary to run `$ pnpm i` (or `$ npm i`) before `$ heft build`
 
 ### Test
 
