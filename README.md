@@ -86,7 +86,7 @@ npm install --global ftrucli
 
 ### Usage
 
-This section contains the CLI help messages and some examples
+This section contains the CLI help messages and some examples.
 
 #### Help Dump
 
