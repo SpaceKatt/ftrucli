@@ -221,7 +221,7 @@ Continuous integration is performed on [TravisCI](https://travis-ci.com/github/S
 
 Continuous deployment is out of scope, but on the roadmap.
 
-The plan is to use GitHub actions to "watch" branches of the pattern `release/*` and publish built artifacts to a `npm` repo.
+The plan is to [use GitHub actions](https://docs.github.com/en/actions/guides/publishing-nodejs-packages) to "watch" branches of the pattern `release/*`, create GitHub releases, and publish said releases to the [`ftrucli` package repository](https://www.npmjs.com/package/ftrucli).
 
 ## Publishing
 
@@ -243,9 +243,11 @@ Use `npm` to publish the package at the current version.
 npm publish
 ```
 
+> Please create a release branch following each successful publish.
+
 ### Release Branching
 
-[Release flow](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/release-flow) dictates we create a `release/*` branch, off of main, after each release. This is done by checking out a new branch after `npm publish` to "snapshot" the release version. The wildcard, `*`, represents a monotonically increasing sequence of non-negative integers that is incremented on each `publish`.
+[Release flow](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/release-flow) dictates we create a `release/*` branch, off of `main`, after each release. This is done by checking out a new branch after `npm publish` to "snapshot" the release version using the `release/*` naming convention. The wildcard, `*`, represents a monotonically increasing sequence of non-negative integers that is incremented on each `publish`.
 
 Hotfixes are implemented in a hotfix branch and then pulled into both the current release branch and `main`, via PR. Old releases are treated as discardable, thus not patched.
 
