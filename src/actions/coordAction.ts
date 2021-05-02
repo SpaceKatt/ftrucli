@@ -1,18 +1,21 @@
-import { JsonOutput } from '../output';
+import { SodaQueryBuilder } from '../builders';
+import { allOutputTypes, OutputType } from '../interfaces';
+import { OutputFactory } from '../factories';
+import { SfSodaClient } from '../services';
 
 import {
   CommandLineAction,
+  CommandLineChoiceParameter,
   CommandLineIntegerParameter,
   CommandLineStringParameter,
 } from '@rushstack/ts-command-line';
-import { SodaQueryBuilder } from '../builders';
-import { SfSodaClient } from '../services/sfSodaClient';
 
 export class CoordAction extends CommandLineAction {
   private _distance!: CommandLineIntegerParameter;
   private _limit!: CommandLineIntegerParameter;
   private _lat!: CommandLineStringParameter;
   private _long!: CommandLineStringParameter;
+  private _output!: CommandLineChoiceParameter;
 
   constructor() {
     super({
@@ -37,10 +40,8 @@ export class CoordAction extends CommandLineAction {
     const cityClient = new SfSodaClient();
     const data = await cityClient.runQuery(query);
 
-    // TODO: gather --output flag and use it to construct
-    //       output object from factory, to enable other
-    //       types of output
-    const output = new JsonOutput();
+    const outputType = this._output.value!;
+    const output = OutputFactory.createOutput(outputType as OutputType);
 
     output.print(data);
   }
@@ -72,6 +73,13 @@ export class CoordAction extends CommandLineAction {
       description:
         'The distance (in meters) to search outwards from a coordinate point.',
       defaultValue: 5000,
+    });
+    this._output = this.defineChoiceParameter({
+      parameterLongName: '--output',
+      parameterShortName: '-o',
+      description: 'Determines how the results are displayed.',
+      alternatives: allOutputTypes,
+      defaultValue: OutputType.prettyJson,
     });
   }
 }
