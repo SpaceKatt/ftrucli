@@ -19,7 +19,7 @@
     - [Dependencies](#dependencies)
       - [Install `node14`, using `nvm`](#install-node14-using-nvm)
       - [Install `pnpm` and `heft`](#install-pnpm-and-heft)
-    - [Build](#build)
+    - [Install Dependencies](#install-dependencies)
     - [Test](#test)
     - [Linting](#linting)
   - [CI/CD](#cicd)
@@ -175,6 +175,12 @@ pnpm install --global @rushstack/heft
 
 > NOTE: Since this project uses `pnpm`, please use it to install new packages (instead of `npm`). This helps maintain the `pnpm-lock.yaml` file.
 
+### Install Dependencies
+
+```bash
+pnpm i
+```
+
 ### Build
 
 This project uses [`heft`](https://rushstack.io/pages/heft/overview/) as a build coordinator.
@@ -182,8 +188,6 @@ This project uses [`heft`](https://rushstack.io/pages/heft/overview/) as a build
 ```bash
 heft build
 ```
-
-> NOTE: `heft` ensures packages are installed, so it is completely unnecessary to run `$ pnpm i` (or `$ npm i`) before `$ heft build`
 
 ### Test
 
