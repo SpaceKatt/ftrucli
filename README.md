@@ -33,14 +33,14 @@
 
 ## MVP Meta
 
-This section describes the author's intent while building the minimum viable product (MVP) for `ftrucli` (and will be refactored once project is beyond MVP stage).
+This section describes the author's intent while building the minimum viable product (MVP) for `ftrucli`.
 
 ### Foundational Intent
 
 Above and beyond all else, the intent of this project is to...
 
 - Demonstrate author's values
-- Showcase problem solving process
+- Showcase author's problem solving process
 - Curate collaboration environment (provide ideal open-source dev experience)
 - Cut a release ~3 hours after `init commit`
 
@@ -93,6 +93,7 @@ This section contains the CLI help messages and some examples
 General help dump...
 
 ```bash
+$ ftrucli --help
 usage: ftrucli [-h] [-v] <command> ...
 
 Food Truck CLI used to find food trucks near a geospatial coordinate
@@ -113,7 +114,7 @@ For detailed help about a specific command, use: ftrucli <command> -h
 `coord` command help dump...
 
 ```bash
-$ ftrucli
+$ ftrucli coord --help
 usage: ftrucli coord [-h] --long LONGITUDE --lat LATITUDE [-n LIMIT]
                     [-d DISTANCE]
 
