@@ -4,15 +4,18 @@ import { SfSodaClient } from '../services';
 
 import {
   CommandLineAction,
+  CommandLineChoiceParameter,
   CommandLineIntegerParameter,
   CommandLineStringParameter,
 } from '@rushstack/ts-command-line';
+import { allOutputTypes, OutputType } from '../interfaces';
 
 export class CoordAction extends CommandLineAction {
   private _distance!: CommandLineIntegerParameter;
   private _limit!: CommandLineIntegerParameter;
   private _lat!: CommandLineStringParameter;
   private _long!: CommandLineStringParameter;
+  private _output!: CommandLineChoiceParameter;
 
   constructor() {
     super({
@@ -72,6 +75,13 @@ export class CoordAction extends CommandLineAction {
       description:
         'The distance (in meters) to search outwards from a coordinate point.',
       defaultValue: 5000,
+    });
+    this._output = this.defineChoiceParameter({
+      parameterLongName: '--output',
+      parameterShortName: '-o',
+      description: 'Determines how the results are displayed.',
+      alternatives: allOutputTypes,
+      defaultValue: OutputType.prettyJson,
     });
   }
 }
