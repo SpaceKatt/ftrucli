@@ -27,8 +27,9 @@
     - [Continuous Integration](#continuous-integration)
     - [Continuous Deployment](#continuous-deployment)
   - [Publishing](#publishing)
-    - [`npm` Publishing](#npm-publishing)
     - [Versioning](#versioning)
+    - [`npm` Publishing](#npm-publishing)
+    - [Release Branching](#release-branching)
   - [Decision Log](#decision-log)
 
 ## MVP Meta
@@ -223,11 +224,7 @@ The plan is to use GitHub actions to "watch" branches of the pattern `release/*`
 
 ## Publishing
 
-### `npm` Publishing
-
-```bash
-npm publish
-```
+`ftrucli` is [published on `npm`](https://www.npmjs.com/package/ftrucli). This section describes best practices surrounding publishing `ftrucli` to its `npm` repository.
 
 ### Versioning
 
@@ -236,6 +233,20 @@ npm publish
 ```bash
 npm version <major|minor|patch>
 ```
+
+### `npm` Publishing
+
+Use `npm` to publish the package at the current version.
+
+```bash
+npm publish
+```
+
+### Release Branching
+
+[Release flow](https://docs.microsoft.com/en-us/azure/devops/learn/devops-at-microsoft/release-flow) dictates we create a `release/*` branch, off of main, after each release. This is done by checking out a new branch after `npm publish` to "snapshot" the release version. The wildcard, `*`, represents a monotonically increasing sequence of non-negative integers that is incremented on each `publish`.
+
+Hotfixes are implemented in a hotfix branch and then pulled into both the current release branch and `main`, via PR. Old releases are treated as discardable, thus not patched.
 
 ## Decision Log
 
