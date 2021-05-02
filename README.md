@@ -179,6 +179,8 @@ pnpm install --global @rushstack/heft
 
 ### Install Dependencies
 
+Use `pnpm` to install all project dependencies.
+
 ```bash
 pnpm i
 ```
