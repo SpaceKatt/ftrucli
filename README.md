@@ -20,6 +20,7 @@
       - [Install `node14`, using `nvm`](#install-node14-using-nvm)
       - [Install `pnpm` and `heft`](#install-pnpm-and-heft)
     - [Install Dependencies](#install-dependencies)
+    - [Build](#build)
     - [Test](#test)
     - [Linting](#linting)
   - [CI/CD](#cicd)
@@ -194,7 +195,7 @@ heft build
 This project uses [`heft`](https://rushstack.io/pages/heft/overview/) as a test orchestrator (`jest` under the covers).
 
 ```bash
-heft build
+heft test
 ```
 
 ### Linting
