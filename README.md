@@ -213,7 +213,7 @@ This section details this project's CI and CD practices.
 
 ### Continuous Integration
 
-Continuous integration is performed on [TravisCI](https://travis-ci.org/github/SpaceKatt/ftrucli), as defined by [`.travis.yml`](.travis.yml). Heft is installed, used to build the project, then used to test the project.
+Continuous integration is performed on [TravisCI](https://travis-ci.com/github/SpaceKatt/ftrucli), as defined by [`.travis.yml`](.travis.yml). Heft is installed, used to build the project, then used to test the project.
 
 ### Continuous Deployment
 
