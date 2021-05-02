@@ -49,4 +49,18 @@ describe('jsonToTable', () => {
 
     expect(t).toThrow(SyntaxError);
   });
+
+  it('Throws when extra headers exist on some data', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const badExample: any[] = [
+      { header_1: 'data' },
+      { header_1: 'data', header_2: 'data' },
+    ];
+
+    const t = (): string[][] => {
+      return jsonToTable(badExample);
+    };
+
+    expect(t).toThrow(SyntaxError);
+  });
 });
