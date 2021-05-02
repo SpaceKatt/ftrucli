@@ -39,5 +39,14 @@ describe('jsonToTable', () => {
     expect(result).toStrictEqual(expectedTable);
   });
 
-  it('Throws when shape of data is inconsistent', () => {});
+  it('Throws when shape of data is inconsistent', () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const badExample: any[] = [{ header_1: 'data' }, { header_2: 'data' }];
+
+    const t = (): string[][] => {
+      return jsonToTable(badExample);
+    };
+
+    expect(t).toThrow(SyntaxError);
+  });
 });
