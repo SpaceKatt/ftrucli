@@ -117,10 +117,11 @@ For detailed help about a specific command, use: ftrucli <command> -h
 ```bash
 $ ftrucli coord --help
 usage: ftrucli coord [-h] --long LONGITUDE --lat LATITUDE [-n LIMIT]
-                    [-d DISTANCE]
+                     [-d DISTANCE]
 
 
-TODO: more docs here.
+Finds food trucks within a specified distance from a coordinate pair. Filters
+exist for limiting the number of food trucks which are displayed.
 
 Optional arguments:
   -h, --help            Show this help message and exit.
