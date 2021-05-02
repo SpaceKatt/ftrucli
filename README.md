@@ -205,6 +205,8 @@ heft test
 
 This project uses [eslint](https://eslint.org/) for linting. (TSLint is now deprecated.)
 
+We recommend using [this eslint VS Code extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+
 ## CI/CD
 
 This section details this project's CI and CD practices.
