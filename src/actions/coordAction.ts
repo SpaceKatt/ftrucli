@@ -1,4 +1,6 @@
 import { SodaQueryBuilder } from '../builders';
+import { allOutputTypes, OutputType } from '../interfaces';
+import { OutputFactory } from '../factories';
 import { SfSodaClient } from '../services';
 
 import {
@@ -7,8 +9,6 @@ import {
   CommandLineIntegerParameter,
   CommandLineStringParameter,
 } from '@rushstack/ts-command-line';
-import { allOutputTypes, OutputType } from '../interfaces';
-import { OutputFactory } from '../factories';
 
 export class CoordAction extends CommandLineAction {
   private _distance!: CommandLineIntegerParameter;
