@@ -16,7 +16,7 @@
       - [Help Dump](#help-dump)
       - [Usage Examples](#usage-examples)
   - [Development](#development)
-    - [Dependencies](#dependencies)
+    - [Build Toolchain Setup](#build-toolchain-setup)
       - [Install `node14`, using `nvm`](#install-node14-using-nvm)
       - [Install `pnpm` and `heft`](#install-pnpm-and-heft)
     - [Install Dependencies](#install-dependencies)
@@ -152,9 +152,9 @@ ftrucli coord --lat 37.80 --long -122.43 --distance 7331 --limit 1
 
 ## Development
 
-### Dependencies
+### Build Toolchain Setup
 
-This section describes how to set up the project's build toolchain.
+This section describes how to set up the project's build toolchain. `node14` (managed by `nvm`), `pnpm`, and `heft` are the critical tools which enable our build process.
 
 #### Install `node14`, using `nvm`
 
