@@ -49,7 +49,7 @@ Above and beyond all else, the intent of this project is to...
 
 The following areas of focus drove the design of the `ftrucli` MVP...
 
-- Implement bare minimum feature set (give at least five (5) food trucks, given a coordinate pair)
+- Implement bare minimum feature set (serve at least five (5) food trucks, given a coordinate pair)
 - Prioritize production readiness by focusing on...
   - Organization
   - Design
@@ -156,7 +156,7 @@ ftrucli coord --lat 37.80 --long -122.43 --distance 7331 --limit 1
 
 ### Build Toolchain Setup
 
-This section describes how to set up the project's build toolchain. `node14` (managed by `nvm`), `pnpm`, and `heft` are the critical tools which enable our build process.
+This section describes how to set up the project's build toolchain. `node14` (managed by `nvm`), `pnpm`, and `heft` are the critical tools which enable our build process. `ftrucli` uses build tools from the [Rush Stack](https://rushstack.io/) toolset family.
 
 #### Install `node14`, using `nvm`
 
