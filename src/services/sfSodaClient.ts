@@ -1,7 +1,7 @@
+import { FtrucliConstans } from '../constants';
 import { CityClient } from '../interfaces';
 
 import axios from 'axios';
-import { FtrucliConstans } from '../constants/ftrucliConstants';
 
 function encode(val: string): string {
   return encodeURIComponent(val)

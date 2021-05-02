@@ -1,12 +1,12 @@
+import { SodaQueryBuilder } from '../builders';
 import { JsonOutput } from '../output';
+import { SfSodaClient } from '../services';
 
 import {
   CommandLineAction,
   CommandLineIntegerParameter,
   CommandLineStringParameter,
 } from '@rushstack/ts-command-line';
-import { SodaQueryBuilder } from '../builders';
-import { SfSodaClient } from '../services/sfSodaClient';
 
 export class CoordAction extends CommandLineAction {
   private _distance!: CommandLineIntegerParameter;
