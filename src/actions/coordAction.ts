@@ -19,7 +19,8 @@ export class CoordAction extends CommandLineAction {
       actionName: 'coord',
       summary:
         'Finds food trucks within a specified distance from a coordinate pair.',
-      documentation: 'TODO: more docs here.',
+      documentation:
+        'Finds food trucks within a specified distance from a coordinate pair. Filters exist for limiting the number of food trucks which are displayed.',
     });
   }
 
