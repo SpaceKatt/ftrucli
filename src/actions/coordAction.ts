@@ -1,5 +1,4 @@
 import { SodaQueryBuilder } from '../builders';
-import { JsonOutput } from '../output';
 import { SfSodaClient } from '../services';
 
 import {
@@ -9,6 +8,7 @@ import {
   CommandLineStringParameter,
 } from '@rushstack/ts-command-line';
 import { allOutputTypes, OutputType } from '../interfaces';
+import { OutputFactory } from '../factories';
 
 export class CoordAction extends CommandLineAction {
   private _distance!: CommandLineIntegerParameter;
@@ -40,10 +40,8 @@ export class CoordAction extends CommandLineAction {
     const cityClient = new SfSodaClient();
     const data = await cityClient.runQuery(query);
 
-    // TODO: gather --output flag and use it to construct
-    //       output object from factory, to enable other
-    //       types of output
-    const output = new JsonOutput();
+    const outputType = this._output.value!;
+    const output = OutputFactory.createOutput(outputType as OutputType);
 
     output.print(data);
   }
