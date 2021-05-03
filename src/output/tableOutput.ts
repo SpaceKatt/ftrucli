@@ -47,10 +47,11 @@ export class TableOutput implements Output {
     const filteredData = this.tableDataFilter(data);
 
     if (filteredData.length < 1) {
-      console.log(
-        'No search results to display! Food Trucks with missing hours are filtered out from results.',
-      );
-      console.log('  Try using a larger --distance or new --lat --long');
+      const msg = `
+        No search results to display! Food Trucks with missing hours are filtered out from results.
+          Try using a larger --distance or new --lat --long
+      `;
+      console.log(msg);
     } else {
       const tableTrucks = jsonToTable(filteredData);
 
