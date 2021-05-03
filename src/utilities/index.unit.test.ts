@@ -7,7 +7,6 @@ describe('jsonToTable', () => {
     const inputJson: any[] = [];
     const expectedTable: string[][] = [];
     const headers: string[] = [];
-    const data: string[][] = [];
 
     const headerGenerator: IterableIterator<string> = prefixGenerator('header');
     const dataGenerator: IterableIterator<string> = prefixGenerator('data');
@@ -30,7 +29,6 @@ describe('jsonToTable', () => {
         obj[header] = genData;
         objData.push(genData);
       }
-      data.push(objData);
       expectedTable.push(objData);
       inputJson.push(obj);
     }
