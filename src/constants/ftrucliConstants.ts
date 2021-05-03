@@ -10,7 +10,7 @@ export enum SodaResponseHeaders {
   address = 'address',
   latitude = 'latitude',
   longitude = 'longitude',
-  dayshours = 'dayshours',
+  schedule = 'schedule',
   locationdescription = 'locationdescription',
   fooditems = 'fooditems',
   status = 'status',
