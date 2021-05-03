@@ -12,28 +12,22 @@ export function jsonToTable(data: any[]): string[][] {
     throw new SyntaxError('No data to transform!');
   }
   const headers: string[] = [];
-  const firstRow = data[0];
 
-  for (const header of Object.keys(firstRow)) {
-    headers.push(header);
+  for (let i = 0; i < data.length; i++) {
+    for (const header of Object.keys(data[i])) {
+      if (headers.indexOf(header) < 0) {
+        headers.push(header);
+      }
+    }
   }
 
   const table: string[][] = [headers];
 
   for (const record of data) {
-    for (const header of Object.keys(record)) {
-      if (headers.indexOf(header) < 0) {
-        throw new SyntaxError(
-          `jsonToTable: Header "${header}" of child does not exist on prototype`,
-        );
-      }
-    }
     const tableRow: string[] = [];
     for (const header of headers) {
       if (!record[header]) {
-        throw new SyntaxError(
-          `jsonToTable: Header "${header}" of prototype does not exist on child`,
-        );
+        record[header] = 'NULL';
       }
       tableRow.push(record[header]);
     }
