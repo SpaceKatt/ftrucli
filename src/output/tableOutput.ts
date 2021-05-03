@@ -11,32 +11,33 @@ export class TableOutput implements Output {
       SodaResponseHeaders.applicant,
       SodaResponseHeaders.address,
       SodaResponseHeaders.fooditems,
-      SodaResponseHeaders.dayshours,
       SodaResponseHeaders.status,
       SodaResponseHeaders.longitude,
       SodaResponseHeaders.latitude,
+      SodaResponseHeaders.schedule,
     ];
-    const truncateLength = 30;
+    const truncateLength = 25;
     return data.reduce((result, element) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const newElement: any = {};
-      let success = true;
 
       const elementKeys = Object.keys(element);
       for (const header of relevantHeaders) {
-        if (elementKeys.indexOf(header) < 0) {
-          success = false;
-          break;
+        if (elementKeys.indexOf(header) > -1) {
+          if (header === SodaResponseHeaders.schedule) {
+            newElement[header] = String(element[header]);
+          } else {
+            newElement[header] = String(element[header]).substring(
+              0,
+              truncateLength,
+            );
+          }
+        } else {
+          newElement[header] = 'NULL';
         }
-        newElement[header] = String(element[header]).substring(
-          0,
-          truncateLength,
-        );
       }
 
-      if (success) {
-        result.push(newElement);
-      }
+      result.push(newElement);
 
       return result;
     }, []);
