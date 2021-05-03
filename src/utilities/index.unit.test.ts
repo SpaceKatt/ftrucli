@@ -14,23 +14,28 @@ describe('jsonToTable', () => {
     const numHeaders = 3;
     const numObjects = 3;
 
+    // generate headers to construct table and JSON with
     for (let i = 0; i < numHeaders; i++) {
       headers.push(headerGenerator.next().value);
     }
     expectedTable.push(headers);
 
+    // use headers to generate objects in their JSON and table representations
     for (let i = 0; i < numObjects; i++) {
-      const objData: string[] = [];
+      // create an object with data for each header
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const obj: any = {};
+      //  create a row for the object in the expected table
+      const objData: string[] = [];
       for (let j = 0; j < headers.length; j++) {
         const header = headers[j];
+        // generate unique data for each header in each object
         const genData = dataGenerator.next().value;
         obj[header] = genData;
         objData.push(genData);
       }
-      expectedTable.push(objData);
       inputJson.push(obj);
+      expectedTable.push(objData);
     }
 
     const result = jsonToTable(inputJson);
