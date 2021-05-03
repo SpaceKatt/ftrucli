@@ -48,7 +48,7 @@ export class TableOutput implements Output {
 
     if (filteredData.length < 1) {
       const msg = `
-        No search results to display! Food Trucks with missing hours are filtered out from results.
+        No search results to display! Food Trucks without an approved permit are filtered from the results.
           Try using a larger --distance or new --lat --long
       `;
       console.log(msg);
