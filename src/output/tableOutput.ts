@@ -15,24 +15,24 @@ export class TableOutput implements Output {
       SodaResponseHeaders.latitude,
       SodaResponseHeaders.schedule,
     ];
+    // cut strings to length of...
     const truncateLength = 30;
+
+    // filter out irrelevant headers, and fill in missing values with "NULL"
     return data.reduce((result, element) => {
+      // for each element, build a new element with only the relevant headers
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const newElement: any = {};
-
-      const elementKeys = Object.keys(element);
       for (const header of relevantHeaders) {
-        if (elementKeys.indexOf(header) > -1) {
-          if (header === SodaResponseHeaders.schedule) {
-            newElement[header] = String(element[header]);
-          } else {
-            newElement[header] = String(element[header]).substring(
-              0,
-              truncateLength,
-            );
-          }
+        // don't truncate the schedule URL
+        if (header === SodaResponseHeaders.schedule) {
+          newElement[header] = String(element[header]);
         } else {
-          newElement[header] = 'NULL';
+          // truncate every other field to constant length
+          newElement[header] = String(element[header]).substring(
+            0,
+            truncateLength,
+          );
         }
       }
 
