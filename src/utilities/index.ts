@@ -13,6 +13,7 @@ export function jsonToTable(data: any[]): string[][] {
   }
   const headers: string[] = [];
 
+  // collect all headers in JSON objs
   for (let i = 0; i < data.length; i++) {
     for (const header of Object.keys(data[i])) {
       if (headers.indexOf(header) < 0) {
@@ -23,6 +24,7 @@ export function jsonToTable(data: any[]): string[][] {
 
   const table: string[][] = [headers];
 
+  // create a record for each object to insert into the table
   for (const record of data) {
     const tableRow: string[] = [];
     for (const header of headers) {
