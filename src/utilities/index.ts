@@ -8,8 +8,8 @@ export function* prefixGenerator(prefix: string): IterableIterator<string> {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function jsonToTable(data: any[]): string[][] {
-  if (!data) {
-    throw new SyntaxError('No data to transform!');
+  if (!data || data.length <= 0) {
+    throw new Error('No data to transform!');
   }
   const headers: string[] = [];
 

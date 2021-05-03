@@ -49,4 +49,10 @@ describe('jsonToTable', () => {
     const table = jsonToTable(missingData);
     expect(table).toStrictEqual(expectedTable);
   });
+
+  it('Throws on empty dataset', () => {
+    expect(() => {
+      jsonToTable([]);
+    }).toThrow();
+  });
 });
