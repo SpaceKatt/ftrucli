@@ -11,12 +11,11 @@ export class TableOutput implements Output {
       SodaResponseHeaders.applicant,
       SodaResponseHeaders.address,
       SodaResponseHeaders.fooditems,
-      SodaResponseHeaders.status,
       SodaResponseHeaders.longitude,
       SodaResponseHeaders.latitude,
       SodaResponseHeaders.schedule,
     ];
-    const truncateLength = 25;
+    const truncateLength = 30;
     return data.reduce((result, element) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const newElement: any = {};
