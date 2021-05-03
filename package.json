@@ -32,7 +32,8 @@
   "homepage": "https://github.com/SpaceKatt/ftrucli#readme",
   "dependencies": {
     "@rushstack/ts-command-line": "^4.7.9",
-    "axios": "0.21.1"
+    "axios": "0.21.1",
+    "table": "6.6.0"
   },
   "devDependencies": {
     "@rushstack/eslint-config": "^2.3.3",
