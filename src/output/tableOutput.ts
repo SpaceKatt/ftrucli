@@ -6,7 +6,7 @@ import { SodaResponseHeaders } from '../constants';
 
 export class TableOutput implements Output {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  static tableDataFilter(data: any[]): any[] {
+  private tableDataFilter(data: any[]): any[] {
     const relevantHeaders = [
       SodaResponseHeaders.applicant,
       SodaResponseHeaders.address,
@@ -44,7 +44,7 @@ export class TableOutput implements Output {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   print(data: any): void {
-    const filteredData = TableOutput.tableDataFilter(data);
+    const filteredData = this.tableDataFilter(data);
 
     if (filteredData.length < 1) {
       console.log(
