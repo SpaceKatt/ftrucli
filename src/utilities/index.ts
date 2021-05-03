@@ -21,11 +21,18 @@ export function jsonToTable(data: any[]): string[][] {
   const table: string[][] = [headers];
 
   for (const record of data) {
+    for (const header of Object.keys(record)) {
+      if (headers.indexOf(header) < 0) {
+        throw new SyntaxError(
+          `jsonToTable: Header "${header}" of child does not exist on prototype`,
+        );
+      }
+    }
     const tableRow: string[] = [];
     for (const header of headers) {
       if (!record[header]) {
         throw new SyntaxError(
-          `jsonToTable: Header "${header}" does not exist on prototype`,
+          `jsonToTable: Header "${header}" of prototype does not exist on child`,
         );
       }
       tableRow.push(record[header]);
