@@ -79,7 +79,7 @@ export class CoordAction extends CommandLineAction {
       parameterShortName: '-o',
       description: 'Determines how the results are displayed.',
       alternatives: allOutputTypes,
-      defaultValue: OutputType.prettyJson,
+      defaultValue: OutputType.table,
     });
   }
 }
