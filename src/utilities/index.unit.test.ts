@@ -39,28 +39,16 @@ describe('jsonToTable', () => {
     expect(result).toStrictEqual(expectedTable);
   });
 
-  it('Throws when shape of data is inconsistent', () => {
+  it('Fills in missing data', () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const badExample: any[] = [{ header_1: 'data' }, { header_2: 'data' }];
-
-    const t = (): string[][] => {
-      return jsonToTable(badExample);
-    };
-
-    expect(t).toThrow(SyntaxError);
-  });
-
-  it('Throws when extra headers exist on some data', () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const badExample: any[] = [
-      { header_1: 'data' },
-      { header_1: 'data', header_2: 'data' },
+    const missingData: any[] = [{ header_1: 'data' }, { header_2: 'data' }];
+    const expectedTable = [
+      ['header_1', 'header_2'],
+      ['data', 'NULL'],
+      ['NULL', 'data'],
     ];
 
-    const t = (): string[][] => {
-      return jsonToTable(badExample);
-    };
-
-    expect(t).toThrow(SyntaxError);
+    const table = jsonToTable(missingData);
+    expect(table).toStrictEqual(expectedTable);
   });
 });
