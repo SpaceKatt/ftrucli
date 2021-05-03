@@ -144,12 +144,17 @@ ftrucli coord --lat 37.80 --long -122.43
 
 ```bash
 # Specify distance
-ftrucli coord --lat 37.80 --long -122.43 --distance 7331
+ftrucli coord --lat 37.80 --long -122.43 --distance 1000
 ```
 
 ```bash
 # Specify limit
-ftrucli coord --lat 37.80 --long -122.43 --distance 7331 --limit 1
+ftrucli coord --lat 37.80 --long -122.43 --distance 2500 --limit 9
+```
+
+```bash
+# Use different output format
+ftrucli coord --lat 37.80 --long -122.43 --output prettyJson
 ```
 
 ## Development
