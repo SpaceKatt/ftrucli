@@ -1,6 +1,7 @@
 # ftrucli
 
 [![Build Status](https://travis-ci.com/SpaceKatt/ftrucli.svg?branch=main)](https://travis-ci.com/SpaceKatt/ftrucli)
+![npm](https://img.shields.io/npm/v/ftrucli)
 
 `ftrucli` is a Food Truck CLI used to find food trucks near a geospatial coordinate (especially in San Francisco).
 
