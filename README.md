@@ -73,7 +73,7 @@ The CLI will follow the basic flow of the following diagram...
 
 ![User journey sequence diagram](docs/diagrams/out/docs/diagrams/user-data-flow/user-data-flow.png))
 
-Author _may_ or may not have time to implement factories for extensibility. If they do, then the `Output` class will be the first refactoring candidate (to output results in either a prettified table or raw `json`).
+The `Output` class uses a factory to provide transparent extensibility for the `Action` component (to output results in either a prettified `table` or `raw` format).
 
 ## CLI Instructions
 
@@ -117,7 +117,7 @@ For detailed help about a specific command, use: ftrucli <command> -h
 ```bash
 $ ftrucli coord --help
 usage: ftrucli coord [-h] --long LONGITUDE --lat LATITUDE [-n LIMIT]
-                     [-d DISTANCE] [-o {prettyJson,table}]
+                     [-d DISTANCE] [-o {prettyJson,raw,table}]
 
 
 Finds food trucks within a specified distance from a coordinate pair. Filters
@@ -133,7 +133,7 @@ Optional arguments:
   -d DISTANCE, --distance DISTANCE
                         The distance (in meters) to search outwards from a
                         coordinate point. The default value is 5000.
-  -o {prettyJson,table}, --output {prettyJson,table}
+  -o {prettyJson,raw,table}, --output {prettyJson,raw,table}
                         Determines how the results are displayed. The default
                         value is "table".
 ```
@@ -157,7 +157,7 @@ ftrucli coord --lat 37.80 --long -122.43 --distance 2500 --limit 9
 
 ```bash
 # Use different output format
-ftrucli coord --lat 37.80 --long -122.43 --output prettyJson
+ftrucli coord --lat 37.80 --long -122.43 --output raw
 ```
 
 ## Development

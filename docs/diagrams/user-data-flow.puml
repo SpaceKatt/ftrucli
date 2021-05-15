@@ -35,7 +35,7 @@ deactivate CitySodaClient
 
 Action->Output: print(data)
 activate Output
-Output->Output: write to stdin stream
+Output->Output: write to stdout stream
 Output->Action: success
 deactivate Output
 
