@@ -1,11 +1,13 @@
 import { OutputType, Output } from '../interfaces';
-import { JsonOutput, TableOutput } from '../output';
+import { JsonOutput, RawOutput, TableOutput } from '../output';
 
 export class OutputFactory {
   static createOutput(kind: OutputType): Output {
     switch (kind) {
       case OutputType.prettyJson:
         return new JsonOutput();
+      case OutputType.raw:
+        return new RawOutput();
       case OutputType.table:
         return new TableOutput();
       default:
