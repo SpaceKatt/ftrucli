@@ -1,5 +1,6 @@
 export enum OutputType {
   prettyJson = 'prettyJson',
+  raw = 'raw',
   table = 'table',
 }
 
