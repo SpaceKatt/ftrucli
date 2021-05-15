@@ -1,5 +1,6 @@
 export enum OutputType {
   prettyJson = 'prettyJson',
+  table = 'table',
 }
 
 export const allOutputTypes: string[] = Object.keys(OutputType);

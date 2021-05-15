@@ -3,7 +3,7 @@ import { SodaQueryBuilder } from './sodaQueryBuilder';
 describe('SodaQueryBuilder', () => {
   it('Builds queries', () => {
     const expectedQuery =
-      'select * where within_circle(location,37.80,-122.43,1000) limit 7';
+      "select * where status=='APPROVED' and within_circle(location,37.80,-122.43,1000) limit 7";
     const lat = '37.80';
     const long = '-122.43';
     const distance = 1000;

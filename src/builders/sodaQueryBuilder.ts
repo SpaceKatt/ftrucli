@@ -37,6 +37,6 @@ export class SodaQueryBuilder implements QueryBuilder {
         'SodaQueryBuilder :: User must set both lat and long before bulding query...',
       );
     }
-    return `select * where within_circle(location,${this._lat},${this._long},${this._distance}) limit ${this._limit}`;
+    return `select * where status=='APPROVED' and within_circle(location,${this._lat},${this._long},${this._distance}) limit ${this._limit}`;
   }
 }

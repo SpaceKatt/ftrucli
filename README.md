@@ -117,7 +117,7 @@ For detailed help about a specific command, use: ftrucli <command> -h
 ```bash
 $ ftrucli coord --help
 usage: ftrucli coord [-h] --long LONGITUDE --lat LATITUDE [-n LIMIT]
-                     [-d DISTANCE]
+                     [-d DISTANCE] [-o {prettyJson,table}]
 
 
 Finds food trucks within a specified distance from a coordinate pair. Filters
@@ -133,6 +133,9 @@ Optional arguments:
   -d DISTANCE, --distance DISTANCE
                         The distance (in meters) to search outwards from a
                         coordinate point. The default value is 5000.
+  -o {prettyJson,table}, --output {prettyJson,table}
+                        Determines how the results are displayed. The default
+                        value is "table".
 ```
 
 #### Usage Examples
@@ -144,12 +147,17 @@ ftrucli coord --lat 37.80 --long -122.43
 
 ```bash
 # Specify distance
-ftrucli coord --lat 37.80 --long -122.43 --distance 7331
+ftrucli coord --lat 37.80 --long -122.43 --distance 1000
 ```
 
 ```bash
 # Specify limit
-ftrucli coord --lat 37.80 --long -122.43 --distance 7331 --limit 1
+ftrucli coord --lat 37.80 --long -122.43 --distance 2500 --limit 9
+```
+
+```bash
+# Use different output format
+ftrucli coord --lat 37.80 --long -122.43 --output prettyJson
 ```
 
 ## Development
